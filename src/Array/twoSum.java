@@ -32,10 +32,31 @@ public class twoSum {
         return new int[] {-1,-1};
     }
 
+    //optimal solution
+    public static int[] optimal(int[] arr,int t){
+        int n=arr.length;
+        Arrays.sort(arr);
+        int i=0,j=n-1;
+        while(i<j){
+            if(arr[i]+arr[j]==t){
+                return new int[] {i,j};
+            }
+            else if(arr[i]+arr[j]<t){
+                i++;
+            }
+            else{
+                j--;
+            }
+
+        }
+        return new int[] {-1,-1};
+    }
+
     public static void main(String[] args) {
         int[] arr={2,7,11,15};
         System.out.println("brute approach: " + Arrays.toString(brute(arr, 9)));
         System.out.println("better approch :" + Arrays.toString(better(arr, 9)));
+        System.out.println("better approch :" + Arrays.toString(optimal(arr, 9)));
 
     }
 }
