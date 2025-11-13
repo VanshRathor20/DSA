@@ -34,10 +34,37 @@ public class majorityElement {
         return -1;
     }
 
+    //optimal
+    public static int majorityElement(int[] v) {
+        int cnt = 0;
+        int el = 0;
+        for (int i = 0; i < v.length; i++) {
+            if (cnt == 0) {
+                el = v[i];
+                cnt = 1;
+            }
+            else if (v[i] == el) {
+                cnt++;
+            }
+            else {
+                cnt--;
+            }
+        }
+        int cnt1 = 0;
+        for (int i = 0; i < v.length; i++) {
+            if (v[i] == el) cnt1++;
+        }
+        if (cnt1 > v.length / 2) {
+            return el;
+        }
+        return -1;
+    }
+
     public static void main(String[] args) {
         int[] arr={2,2,3,3,2,2};
         System.out.println("brute :"+(brute(arr)));
         System.out.println("brute :"+(better(arr)));
+        System.out.println("brute :"+(majorityElement(arr)));
     }
 
 }
