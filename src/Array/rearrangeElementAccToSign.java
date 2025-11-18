@@ -26,6 +26,24 @@ public class rearrangeElementAccToSign {
         return ans;
     }
 
+    //optimal
+    public static int[] optimal(int[] arr){
+        int n=arr.length;
+        int[] anss=new int[n];
+        int k=0,j=1;
+        for(int i=0;i<n;i++){
+            if(arr[i]<0){
+                anss[j]=arr[i];
+                j=j+2;
+            }
+            else{
+                anss[k]=arr[i];
+                k=k+2;
+            }
+        }
+        return anss;
+    }
+
     public static void main(String[] args) {
         int[] arr = {3, 1, -2, -5, 2, -4};
 
@@ -38,6 +56,9 @@ public class rearrangeElementAccToSign {
 
         // Print
         System.out.println("brute : " + Arrays.toString(result));
+
+        int[] result2=optimal(arr);
+        System.out.println("optimal :"+Arrays.toString(result2));
 
     }
 }
