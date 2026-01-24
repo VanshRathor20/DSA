@@ -2,7 +2,6 @@ package Array;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 
 public class LeadersInArray {
     //brute
@@ -22,21 +21,6 @@ public class LeadersInArray {
             }
         }
         return ans;
-    }
-
-    //optimal
-    public static ArrayList<Integer> optimal(int[] arr){
-        ArrayList<Integer> result = new ArrayList<>();
-        int n=arr.length;
-        int max=arr[n-1];
-        for(int i=n-2;i>=0;i--){
-            if(arr[i]>max){
-                max=arr[i];
-                result.add(max);
-            }
-        }
-        Collections.reverse(result);
-        return result;
     }
 
     public static void main(String[] args) {
