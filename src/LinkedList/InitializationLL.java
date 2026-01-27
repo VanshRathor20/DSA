@@ -10,7 +10,7 @@ class Node{
     }
 }
 public class InitializationLL {
-    Node head;
+    static Node head;
     InitializationLL(){
         head=null;
     }
@@ -46,7 +46,7 @@ public class InitializationLL {
     }
 
     // delete tail of LL
-    Node deleteTail(Node head){
+    public static Node deleteTail(Node head){
         Node temp=head;
         if(head==null || head.next==null){
             return null;
@@ -75,7 +75,7 @@ public class InitializationLL {
         l.insertEnd(30);
         l.insertEnd(40);
         l.head=l.deleteHead(l.head);
-        l.head=l.deleteTail(l.head);
+        l.deleteTail(head);
         l.printList();
     }
 }
