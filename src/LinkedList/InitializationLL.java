@@ -58,6 +58,28 @@ public class InitializationLL {
         return head;
     }
 
+    //delete element at a given index
+    public static Node deleteAtIndex(Node head,int k){
+        int count=0;
+        Node prev=null, temp=head;
+        if(head==null || head.next==null){
+            return null;
+        }
+        if(k==1){
+            head=head.next;
+            return head;
+        }
+       while(temp!=null){
+           count++;
+           if(count==k){
+               prev.next=temp.next;
+           }
+           prev=temp;
+           temp=temp.next;
+        }
+        return head;
+    }
+
     // print list
     void printList(){
         Node temp=head;
@@ -76,6 +98,12 @@ public class InitializationLL {
         l.insertEnd(40);
         l.head=l.deleteHead(l.head);
         l.deleteTail(head);
+        l.insertStart(50);
+        l.insertStart(60);
+        l.insertStart(70);
+        l.insertStart(80);
+        l.insertStart(90);
+        l.deleteAtIndex(head,3);
         l.printList();
     }
 }
