@@ -35,6 +35,15 @@ public class InitializationLL {
         }
         temp.next=newNode;
     }
+
+    // deletion of head of LL
+    Node deleteHead(Node head){
+        if(head==null){
+            return null;
+        }
+        head=head.next;
+        return head;
+    }
     // print list
     void printList(){
         Node temp=head;
@@ -51,6 +60,7 @@ public class InitializationLL {
         l.insertStart(20);
         l.insertEnd(30);
         l.insertEnd(40);
+        l.head=l.deleteHead(l.head);
         l.printList();
     }
 }
