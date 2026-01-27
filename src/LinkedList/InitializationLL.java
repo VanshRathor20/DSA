@@ -80,6 +80,26 @@ public class InitializationLL {
         return head;
     }
 
+    // deletion of given element in LL
+    public static Node deleteElement(Node head,int ele){
+        Node prev=null, temp=head;
+        if (head==null || head.next==null){
+            return null;
+        }
+        if(temp.data==ele){
+            head=head.next;
+            return head;
+        }
+        while (temp!=null){
+            if(temp.data==ele){
+                prev.next=temp.next;
+            }
+            prev=temp;
+            temp=temp.next;
+        }
+        return head;
+    }
+
     // print list
     void printList(){
         Node temp=head;
@@ -104,6 +124,7 @@ public class InitializationLL {
         l.insertStart(80);
         l.insertStart(90);
         l.deleteAtIndex(head,3);
+        l.deleteElement(head,50);
         l.printList();
     }
 }
