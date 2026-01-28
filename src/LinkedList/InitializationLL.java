@@ -100,6 +100,35 @@ public class InitializationLL {
         return head;
     }
 
+    // insert at given postion
+    static Node insertAt(Node head,int val,int k){
+        if(head==null){
+            if(k==1){
+                return new Node(val);
+            }
+            else {
+                return head;
+            }
+        }
+        if(k==1){
+            return new Node(val);
+        }
+        int count=0;
+        Node temp=head;
+        while(temp!=null){
+            count++;
+            if(count==k-1){
+                Node newNode=new Node(val);
+                newNode.next=temp.next;
+                temp.next=newNode;
+                break;
+            }
+            temp=temp.next;
+        }
+        return head;
+    }
+
+
     // print list
     void printList(){
         Node temp=head;
@@ -125,6 +154,7 @@ public class InitializationLL {
         l.insertStart(90);
         l.deleteAtIndex(head,3);
         l.deleteElement(head,50);
+        l.insertAt(head,112,3);
         l.printList();
     }
 }
