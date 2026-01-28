@@ -42,6 +42,45 @@ public class DLL {
         newNode.prev=temp;
         return head;
     }
+
+    //insertion at kth position
+    public static Node insertKthElement(Node head, int data, int k) {
+
+        // insert at beginning
+        if (k == 1) {
+            Node newNode = new Node(data);
+            if (head != null) {
+                newNode.next = head;
+                head.prev = newNode;
+            }
+            return newNode;
+        }
+
+        Node temp = head;
+        int count = 1;
+
+        while (temp != null && count < k - 1) {
+            temp = temp.next;
+            count++;
+        }
+
+        // k is greater than length + 1
+        if (temp == null) return head;
+
+        Node newNode = new Node(data);
+        Node front = temp.next;
+
+        newNode.next = front;
+        newNode.prev = temp;
+        temp.next = newNode;
+
+        if (front != null) {
+            front.prev = newNode;
+        }
+
+        return head;
+    }
+
     //deletion of head
     public static Node deletionHead(Node head){
         if(head==null || head.next==null){
