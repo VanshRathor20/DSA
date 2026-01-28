@@ -14,6 +14,17 @@ class Node{
 public class DLL {
     Node head;
 
+    // insertion at begning
+    public static Node insertStart(Node head,int data){
+        if(head==null){
+            return head;
+        }
+        Node newNode=new Node(data);
+        newNode.next=head;
+        head.prev=newNode;
+        newNode.prev=null;
+        return head;
+    }
     //deletion of head
     public static Node deletionHead(Node head){
         if(head==null || head.next==null){
