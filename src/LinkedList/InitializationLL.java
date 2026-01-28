@@ -128,6 +128,27 @@ public class InitializationLL {
         return head;
     }
 
+    //innsert value before value
+    Node insertBeforeValue(Node head, int el, int val) {
+        if (head == null) {
+            return null;
+        }
+        if (head.data == val) {
+            return new Node(el);
+        }
+        Node temp = head;
+        while (temp.next != null) {
+            if (temp.next.data == val) {
+                Node x = new Node(el);
+                x.next=temp.next;
+                temp.next = x;
+                break;
+            }
+            temp = temp.next;
+        }
+        return head;
+    }
+
 
     // print list
     void printList(){
@@ -155,6 +176,7 @@ public class InitializationLL {
         l.deleteAtIndex(head,3);
         l.deleteElement(head,50);
         l.insertAt(head,112,3);
+        l.insertBeforeValue(head,70,112);
         l.printList();
     }
 }
