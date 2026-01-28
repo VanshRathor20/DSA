@@ -151,5 +151,6 @@ public class InitializationLL {
         l.insertAt(112, 1);
         l.insertBeforeValue(99, 112);
         l.printList();
+
     }
 }
