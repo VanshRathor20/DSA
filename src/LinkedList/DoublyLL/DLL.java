@@ -16,14 +16,14 @@ public class DLL {
 
     // insertion at begning
     public static Node insertStart(Node head,int data){
-        if(head==null){
-            return head;
-        }
         Node newNode=new Node(data);
+        if(head==null){
+            return newNode;
+        }
         newNode.next=head;
         head.prev=newNode;
         newNode.prev=null;
-        return head;
+        return newNode;
     }
 
     //insertion at tail
@@ -153,35 +153,10 @@ public class DLL {
         return head;
     }
 
-    // delete Node element
-    static Node deleteNode(Node head, Node temp) {
-        if (temp == null) return head;
-
-        // deleting head
-        if (temp.prev == null) {
-            head = temp.next;
-            if (head != null) head.prev = null;
-            return head;
-        }
-
-        Node prev = temp.prev;
-        Node front = temp.next;
-
-        if (front == null) {
-            prev.next = null;
-        } else {
-            prev.next = front;
-            front.prev = prev;
-        }
-
-        temp.next = null;
-        temp.prev = null;
-        return head;
-    }
-
     //print list
     public void printList(){
         Node temp=head;
+        System.out.print("null"+"<-");
         while(temp!=null){
             System.out.print(temp.data+"<->");
             temp=temp.next;
@@ -193,6 +168,17 @@ public class DLL {
 
     public static void main(String[] args) {
         DLL dl=new DLL();
+        dl.head=dl.insertStart(dl.head,5);
+        dl.head=dl.insertStart(dl.head,4);
+        dl.head=dl.insertStart(dl.head,3);
+        dl.head=dl.insertStart(dl.head,2);
+        dl.head=dl.insertTail(dl.head,6);
+        dl.head=dl.insertTail(dl.head,7);
+        dl.head=dl.insertTail(dl.head,8);
+        dl.head=dl.deletionHead(dl.head);
+        dl.head=dl.deleteTail(dl.head);
+        dl.head=dl.removeKthElement(dl.head,3);
+        dl.printList();
 
     }
 
