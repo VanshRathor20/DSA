@@ -25,6 +25,23 @@ public class DLL {
         newNode.prev=null;
         return head;
     }
+
+    //insertion at tail
+    public static Node insertTail(Node head,int data){
+        if(head==null){
+            return new Node(data);
+        }
+        Node temp=head;
+        while(temp.next!=null){
+            temp=temp.next;
+
+        }
+        Node newNode=new Node(data);
+        newNode.next=null;
+        temp.next=newNode;
+        newNode.prev=temp;
+        return head;
+    }
     //deletion of head
     public static Node deletionHead(Node head){
         if(head==null || head.next==null){
