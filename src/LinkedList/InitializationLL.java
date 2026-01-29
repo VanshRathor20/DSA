@@ -144,6 +144,16 @@ public class InitializationLL {
         return temp.data;
     }
 
+    //find a middle optimal approach
+    public static int findMiddleOpt(Node head){
+        Node slow=head, fast=head;
+        while(fast!=null && fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+        }
+        return slow.data;
+    }
+
     // print list
     void printList(){
         Node temp=head;
@@ -172,6 +182,7 @@ public class InitializationLL {
         l.insertAt(head,112,3);
 //        Node middle=l.findMiddle(head);
         System.out.println("middle node of LL: "+findMiddle(head));
+        System.out.println("middle node of LL: "+findMiddleOpt(head));
         l.printList();
 
     }
