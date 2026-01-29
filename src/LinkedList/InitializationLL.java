@@ -128,6 +128,21 @@ public class InitializationLL {
         return head;
     }
 
+    // find middle of LL (brute force)
+    public static int findMiddle(Node head) {
+        Node temp = head;
+        int count = 0;
+        while (temp != null) {
+            count++;
+            temp = temp.next;
+        }
+        int mid = count / 2;
+        temp = head;
+        for (int i = 0; i < mid; i++) {
+            temp = temp.next;
+        }
+        return temp.data;
+    }
 
     // print list
     void printList(){
@@ -155,6 +170,8 @@ public class InitializationLL {
         l.deleteAtIndex(head,3);
         l.deleteElement(head,50);
         l.insertAt(head,112,3);
+//        Node middle=l.findMiddle(head);
+        System.out.println("middle node of LL: "+findMiddle(head));
         l.printList();
 
     }
