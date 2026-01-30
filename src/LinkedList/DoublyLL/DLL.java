@@ -153,6 +153,19 @@ public class DLL {
         return head;
     }
 
+    // reverse a DLL
+    public static Node reverse(Node head){
+        Node prev=null;
+        Node curr=head;
+        while(curr!=null){
+            prev=curr.prev;
+            curr.prev=curr.next;
+            curr.next=prev;
+            curr=curr.prev;
+        }
+        return prev.prev;
+    }
+
     //print list
     public void printList(){
         Node temp=head;
@@ -178,6 +191,7 @@ public class DLL {
         dl.head=dl.deletionHead(dl.head);
         dl.head=dl.deleteTail(dl.head);
         dl.head=dl.removeKthElement(dl.head,3);
+        dl.head=dl.reverse(dl.head);
         dl.printList();
 
     }
