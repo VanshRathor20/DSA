@@ -1,22 +1,23 @@
 package LinkedList.DoublyLL;
 
-class Node{
-    Node prev;
-    int data;
-    Node next;
 
-    Node(int data){
-        this.data=data;
-        this.prev=null;
-        this.next=null;
+
+class DoublyNode {
+    int data;
+    DoublyNode prev;
+    DoublyNode next;
+
+    public DoublyNode(int data) {
+        this.data = data;
     }
 }
+
 public class DLL {
-    Node head;
+    DoublyNode head;
 
     // insertion at begning
-    public static Node insertStart(Node head,int data){
-        Node newNode=new Node(data);
+    public static DoublyNode insertStart(DoublyNode head,int data){
+        DoublyNode newNode=new DoublyNode(data);
         if(head==null){
             return newNode;
         }
@@ -27,16 +28,16 @@ public class DLL {
     }
 
     //insertion at tail
-    public static Node insertTail(Node head,int data){
+    public static DoublyNode insertTail(DoublyNode head,int data){
         if(head==null){
-            return new Node(data);
+            return new DoublyNode(data);
         }
-        Node temp=head;
+        DoublyNode temp=head;
         while(temp.next!=null){
             temp=temp.next;
 
         }
-        Node newNode=new Node(data);
+        DoublyNode newNode=new DoublyNode(data);
         newNode.next=null;
         temp.next=newNode;
         newNode.prev=temp;
@@ -44,11 +45,11 @@ public class DLL {
     }
 
     //insertion at kth position
-    public static Node insertKthElement(Node head, int data, int k) {
+    public static DoublyNode insertKthElement(DoublyNode head, int data, int k) {
 
         // insert at beginning
         if (k == 1) {
-            Node newNode = new Node(data);
+            DoublyNode newNode = new DoublyNode(data);
             if (head != null) {
                 newNode.next = head;
                 head.prev = newNode;
@@ -56,7 +57,7 @@ public class DLL {
             return newNode;
         }
 
-        Node temp = head;
+        DoublyNode temp = head;
         int count = 1;
 
         while (temp != null && count < k - 1) {
@@ -67,8 +68,8 @@ public class DLL {
         // k is greater than length + 1
         if (temp == null) return head;
 
-        Node newNode = new Node(data);
-        Node front = temp.next;
+        DoublyNode newNode = new DoublyNode(data);
+        DoublyNode front = temp.next;
 
         newNode.next = front;
         newNode.prev = temp;
@@ -82,11 +83,11 @@ public class DLL {
     }
 
     //deletion of head
-    public static Node deletionHead(Node head){
+    public static DoublyNode deletionHead(DoublyNode head){
         if(head==null || head.next==null){
             return null;
         }
-        Node prev=head;
+        DoublyNode prev=head;
         head=head.next;
         head.prev=null;
         prev.next=null;
@@ -94,27 +95,27 @@ public class DLL {
     }
 
     // deletion of tail
-    public static Node deleteTail(Node head){
+    public static DoublyNode deleteTail(DoublyNode head){
         if (head == null || head.next == null) {
             return null;
         }
 
-        Node tail=head;
+        DoublyNode tail=head;
         while (tail.next!=null){
             tail=tail.next;
         }
-        Node previous=tail.prev;
+        DoublyNode previous=tail.prev;
         previous.next = null;
         tail.prev=null;
         return head;
     }
 
     //deletion Kth element
-    static Node removeKthElement(Node head, int k) {
+    static DoublyNode removeKthElement(DoublyNode head, int k) {
         if (head == null) return null;
 
         int cnt = 0;
-        Node kNode = head;
+        DoublyNode kNode = head;
 
         while (kNode != null) {
             cnt++;
@@ -125,8 +126,8 @@ public class DLL {
         // if k is greater than length
         if (kNode == null) return head;
 
-        Node prev = kNode.prev;
-        Node front = kNode.next;
+        DoublyNode prev = kNode.prev;
+        DoublyNode front = kNode.next;
 
         // only one node
         if (prev == null && front == null) {
@@ -154,9 +155,9 @@ public class DLL {
     }
 
     // reverse a DLL
-    public static Node reverse(Node head){
-        Node prev=null;
-        Node curr=head;
+    public static DoublyNode reverse(DoublyNode head){
+        DoublyNode prev=null;
+        DoublyNode curr=head;
         while(curr!=null){
             prev=curr.prev;
             curr.prev=curr.next;
@@ -168,7 +169,7 @@ public class DLL {
 
     //print list
     public void printList(){
-        Node temp=head;
+        DoublyNode temp=head;
         System.out.print("null"+"<-");
         while(temp!=null){
             System.out.print(temp.data+"<->");
