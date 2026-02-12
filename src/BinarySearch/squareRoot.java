@@ -13,10 +13,24 @@ public class squareRoot {
         }
         return ans;
     }
+    public static int sqrt(int n){
+        int low=1, high=n,ans=1;
+        while(low<=high){
+            int mid=low+(high-low)/2;
 
+            if(mid*mid<=n){
+                ans=mid;
+                low=mid+1;
+            }
+            else{
+                high=mid-1;
+            }
+        }
+        return ans;
+    }
 
     public static void main(String[] args) {
-
+        System.out.println(sqrt(36));
         System.out.println(brute(36));
     }
 
