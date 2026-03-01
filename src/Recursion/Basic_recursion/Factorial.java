@@ -10,9 +10,16 @@ public class Factorial {
         return fact;
     }
 
+    //recursive
+    public static int recursive(int n){
+        if(n==0) return 1;
+        return n*recursive(n-1);
+    }
+
     public static void main(String[] args) {
         Factorial sol=new Factorial();
         System.out.println(sol.brute(5));
+        System.out.println(sol.recursive(5));
     }
 
 }
