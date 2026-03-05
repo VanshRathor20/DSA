@@ -43,7 +43,7 @@ public class MaxConsecutiveOnesIII {
     public static void main(String[] args) {
         int[] arr={1,1,1,0,0,0,1,1,1,1,0};
         MaxConsecutiveOnesIII sol=new MaxConsecutiveOnesIII();
-//        System.out.println(sol.brute(arr,2));
+        System.out.println(sol.brute(arr,2));
         System.out.println(sol.better(arr,2));
     }
 }
