@@ -40,10 +40,29 @@ public class MaxConsecutiveOnesIII {
         return maxLen;
     }
 
+    //optimal
+    public static int optimal(int[] arr, int k){
+        int maxLen=0, n=arr.length,l=0,r=0, zero=0 ;
+        while(r<n) {
+            if (arr[r] == 0) zero++;
+            if (zero > k) {
+                if (arr[l] == 0) {
+                    zero--;
+                }
+                l++;
+                int len = r - l + 1;
+                maxLen = Math.max(maxLen, len);
+            }
+            r++;
+        }
+        return maxLen;
+    }
+
     public static void main(String[] args) {
         int[] arr={1,1,1,0,0,0,1,1,1,1,0};
         MaxConsecutiveOnesIII sol=new MaxConsecutiveOnesIII();
         System.out.println(sol.brute(arr,2));
         System.out.println(sol.better(arr,2));
+        System.out.println(sol.optimal(arr,2));
     }
 }
