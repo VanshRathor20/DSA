@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class combinationSum {
-
+        //Optimal solution
         private void findCombination(int ind, int[] arr, int target, List<List<Integer>> ans, List<Integer> ds){
             if(ind==arr.length){
                 if(target==0){
