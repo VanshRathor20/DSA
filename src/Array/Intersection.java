@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class Intersection {
     public static List<Integer> findIntersection(int[] arr1, int[] arr2) {
 //        List<Integer> intersection=new ArrayList<>(); if array is already sorted
+
         //if array is unsorted
         Set<Integer> intersection = new HashSet<>();
         int n1 = arr1.length;
